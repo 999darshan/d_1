@@ -1,13 +1,27 @@
-class DashboardModel {
-  final String standardName;
+// class DashboardModel {
+//   final String standardName;
+//   final String subjectName;
+//   final String subjectImage;
+
+//   DashboardModel({
+//     required this.standardName,
+//     required this.subjectName,
+//     required this.subjectImage,
+//   });
+
+//   get subjects => null;
+// }
+
+class StandardModel {
+  final int std;
+  final List<SubjectModel> subject;
+
+  StandardModel({required this.std, required this.subject});
+}
+
+class SubjectModel {
   final String subjectName;
-  final String subjectImage;
+  final String img;
 
-  DashboardModel({
-    required this.standardName,
-    required this.subjectName,
-    required this.subjectImage,
-  });
-
-  get subjects => null;
+  SubjectModel({required this.subjectName, required this.img});
 }

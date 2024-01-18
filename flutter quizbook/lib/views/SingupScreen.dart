@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:image_cropper/image_cropper.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:quiz_2/Controller/Image_Controller.dart';
 import 'package:quiz_2/Controller/Singup_Controller.drt.dart';
 import 'package:quiz_2/Utils/Constanc.dart';
 import 'package:quiz_2/Widget/Common_Appbar.dart';
 import 'package:quiz_2/Widget/Common_Buttons.dart';
 import 'package:quiz_2/Widget/Common_Dropdown.dart';
 import 'package:quiz_2/Widget/Common_TextFomrField.dart';
+import 'package:quiz_2/views/Bottom_Screen.dart';
 import 'package:quiz_2/views/LoginScreen.dart';
 
 class SingupScreen extends StatelessWidget {
@@ -30,6 +34,14 @@ class SingupScreen extends StatelessWidget {
 
   final TextEditingController _dobController = TextEditingController();
 
+  final Photocontroller PhotoController = Get.put(Photocontroller());
+
+  void _onClick() async {
+    ImagePickerService().pickCropImage(
+        CropAspectRatio: const CropAspectRatio(ratioX: 16, ratioY: 9),
+        ImageSource: ImageSource.camera);
+  }
+
   @override
   Widget build(BuildContext context) {
     mobileNumberController.text = mobileNumber;
@@ -50,9 +62,22 @@ class SingupScreen extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.01,
               ),
-              SizedBox(
-                  height: MediaQuery.of(context).size.height / 8,
-                  child: Image.asset("assets/image/add_pic_icon.png")),
+              GestureDetector(
+                onTap: PhotoController.pickImage,
+                child: Obx(() {
+                  return (PhotoController.selectedImage.value == null)
+                      ? CircleAvatar(
+                          radius: 50,
+                          backgroundColor: GreyColor,
+                          child: Image.asset(AddPic),
+                        )
+                      : CircleAvatar(
+                          radius: 50,
+                          backgroundImage:
+                              FileImage(PhotoController.selectedImage.value!),
+                        );
+                }),
+              ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.01,
               ),
@@ -153,7 +178,7 @@ class SingupScreen extends StatelessWidget {
                   Expanded(
                     // Wrap the Date Picker with Expanded
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 20, top: 14),
+                      padding: const EdgeInsets.only(left: 20, top: 18),
                       child: Padding(
                         padding: const EdgeInsets.only(right: 20),
                         child: TextFormField(
@@ -176,8 +201,10 @@ class SingupScreen extends StatelessWidget {
                           },
                           decoration: InputDecoration(
                             labelText: 'Date of Birth',
-                            labelStyle:
-                                TextStyle(fontSize: 13, color: BlackColor),
+                            labelStyle: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: BlackColor),
                             hintText: 'Select date',
                             hintStyle:
                                 TextStyle(fontSize: 12, color: BlackColor),
@@ -252,7 +279,7 @@ class SingupScreen extends StatelessWidget {
                 Get.to(
                     transition: Transition.leftToRightWithFade,
                     duration: Duration(seconds: 1),
-                    () => LoginScreen());
+                    () => Bottom_Screen());
               }
             },
             title: 'Update'),
@@ -261,4 +288,10 @@ class SingupScreen extends StatelessWidget {
   }
 
   void setState(Null Function() param0) {}
+}
+
+class ImagePickerService {
+  void pickCropImage(
+      {required CropAspectRatio CropAspectRatio,
+      required ImageSource ImageSource}) {}
 }

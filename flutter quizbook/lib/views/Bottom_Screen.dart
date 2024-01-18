@@ -14,7 +14,7 @@ class _HomePageState extends State<Bottom_Screen> {
   int pageIndex = 0;
 
   final pages = [
-    Dashboard(),
+    Deshboardscreen(),
     const Page2(),
     const Page3(),
     const Page4(),
@@ -43,7 +43,7 @@ class _HomePageState extends State<Bottom_Screen> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           IconButton(
-            enableFeedback: false,
+            enableFeedback: true,
             onPressed: () {
               setState(() {
                 pageIndex = 0;
@@ -53,16 +53,16 @@ class _HomePageState extends State<Bottom_Screen> {
                 ? const Icon(
                     Icons.home_filled,
                     color: Color.fromARGB(255, 123, 25, 251),
-                    size: 35,
+                    size: 30,
                   )
                 : const Icon(
                     Icons.home_outlined,
                     color: BlackColor,
-                    size: 35,
+                    size: 30,
                   ),
           ),
           IconButton(
-            enableFeedback: false,
+            enableFeedback: true,
             onPressed: () {
               setState(() {
                 pageIndex = 1;
@@ -72,16 +72,16 @@ class _HomePageState extends State<Bottom_Screen> {
                 ? const Icon(
                     Icons.work_rounded,
                     color: MixPurple,
-                    size: 35,
+                    size: 30,
                   )
                 : const Icon(
                     Icons.work_outline_outlined,
                     color: BlackColor,
-                    size: 35,
+                    size: 30,
                   ),
           ),
           IconButton(
-            enableFeedback: false,
+            enableFeedback: true,
             onPressed: () {
               setState(() {
                 pageIndex = 2;
@@ -91,16 +91,16 @@ class _HomePageState extends State<Bottom_Screen> {
                 ? const Icon(
                     Icons.widgets_rounded,
                     color: MixPurple,
-                    size: 35,
+                    size: 30,
                   )
                 : const Icon(
                     Icons.widgets_outlined,
                     color: BlackColor,
-                    size: 35,
+                    size: 30,
                   ),
           ),
           IconButton(
-            enableFeedback: false,
+            enableFeedback: true,
             onPressed: () {
               setState(() {
                 pageIndex = 3;
@@ -110,12 +110,12 @@ class _HomePageState extends State<Bottom_Screen> {
                 ? const Icon(
                     Icons.person,
                     color: MixPurple,
-                    size: 35,
+                    size: 30,
                   )
                 : const Icon(
                     Icons.person_outline,
                     color: BlackColor,
-                    size: 35,
+                    size: 30,
                   ),
           ),
         ],

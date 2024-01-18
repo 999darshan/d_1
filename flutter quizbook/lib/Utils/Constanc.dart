@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 const String bgimage = "assets/image/bg.png";
-const String Logo = "assets/image/Logo.png";
-const String Quizbook = "assets/image/quiz_book.png";
+const String logoo = "assets/image/Logo.png";
+const String AddPic = "assets/image/add_pic_icon.png";
+const String QuizBook = "assets/image/quiz_book.png";
+const String confetti = "assets/image/aaa.jpg";
+const String trophyy = "assets/image/trophy.png";
+
+const String quee = "assets/image/que.png.png";
+const String timee = "assets/image/time.png.png";
 
 const Color WhiteColor = Colors.white;
 const Color BlackColor = Colors.black;

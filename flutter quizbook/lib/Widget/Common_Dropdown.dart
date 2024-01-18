@@ -24,12 +24,13 @@ class CommonDropdown extends StatelessWidget {
       value: value.isEmpty ? null : value,
       decoration: InputDecoration(
         labelText: labelText,
-        labelStyle: TextStyle(color: BlackColor, fontSize: 15),
+        labelStyle: TextStyle(
+            color: BlackColor, fontWeight: FontWeight.w500, fontSize: 20),
         // Add other styling properties here if needed
       ),
       hint: Text(
         hintText,
-        style: TextStyle(fontSize: 14, color: MixBlack),
+        style: TextStyle(fontSize: 14, color: GreyColor),
       ),
       onChanged: onChanged,
       validator: validator,
